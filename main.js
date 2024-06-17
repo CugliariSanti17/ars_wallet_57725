@@ -1,5 +1,5 @@
-function convertirARS(cantidadCripto, valorCripto){
-    bitcoinConvertido = cantidadCripto * valorCripto
+function convertirARS(cantidadPesos, valorCripto){
+    bitcoinConvertido = cantidadPesos * valorCripto
     return bitcoinConvertido
 }
 
@@ -55,7 +55,7 @@ if (opcionPrincipal === 1){
                 alert("La cantidad de USDC que obtuvo es: " + convertirCripto(pesosIngresados, valorTrx))
                 break
             case 6:
-                valorBinance = 610579.91
+                let valorBinance = 610579.91
                 alert("La conversión se realizo con éxito")
                 alert("La cantidad de BNB que obtuvo es: " + convertirCripto(pesosIngresados, valorBinance))
                 break
