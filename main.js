@@ -28,6 +28,10 @@ if (opcionPrincipal === 1){
         alert("Elige la moneda a la que desea convertir sus $ARS")
         let opcionElegida1 = parseInt(prompt("1. BTC | 2. ETH | 3. DOGE | 4. USDT | 5. TRX | 6. BNB: "))
         let pesosIngresados = Number(prompt("Ingrese la cantidad de pesos a convertir: $"))
+        while (isNaN(pesosIngresados)){
+            alert("Ingrese una opción válida")
+            pesosIngresados = Number(prompt("Ingrese la cantidad de pesos a convertir: $"))
+        }
         switch (opcionElegida1){
             case 1:
                 let valorBitcoin = 63237532.37
