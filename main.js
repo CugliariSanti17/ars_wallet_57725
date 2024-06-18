@@ -63,11 +63,11 @@ if (opcionPrincipal === 1){
                 alert("La conversión se realizo con éxito")
                 alert("La cantidad de BNB que obtuvo es: " + convertirCripto(pesosIngresados, valorBinance))
                 break
-                case 7:
-                    let valorDolar = 907.12
-                    alert("La conversión se realizo con éxito")
-                    alert("La cantidad de dólares que obtuvo es: " + convertirCripto(pesosIngresados, valorDolar))
-                    break
+            case 7:
+                let valorDolar = 907.12
+                alert("La conversión se realizo con éxito")
+                alert("La cantidad de dólares que obtuvo es: " + convertirCripto(pesosIngresados, valorDolar))
+                break
             default:
                 alert("La opción elegida no es valida. Ingrese una opcion del 1 al 6.")
         }
