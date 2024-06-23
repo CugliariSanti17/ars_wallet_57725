@@ -1,12 +1,69 @@
-function convertirARS(cantidadPesos, valorCripto){
-    bitcoinConvertido = cantidadPesos * valorCripto
-    return bitcoinConvertido
+function convertirArsBTC(cantidadPesos, valorBTC){
+    let btcConvertido = cantidadPesos * valorBTC
+    return btcConvertido
 }
 
-function convertirCripto(pesosIngresados, valorCripto){
-    cantidadCripto = pesosIngresados / valorCripto
-    return cantidadCripto
+function convertirArsETH(cantidadPesos, valorETH){
+    let ethConvertido = cantidadPesos * valorETH
+    return ethConvertido
 }
+
+function convertirArsDOGE(cantidadPesos, valorDOGE){
+    let dogeConvertido = cantidadPesos * valorDOGE
+    return dogeConvertido
+}
+
+function convertirArsUSDT(cantidadPesos, valorUSDT){
+    let usdtConvertido = cantidadPesos * valorUSDT
+    return usdtConvertido
+}
+
+function convertirArsTRX(cantidadPesos, valorTRX){
+    let trxConvertido = cantidadPesos * valorTRX
+    return trxConvertido
+}
+
+function convertirArsBNB(cantidadPesos, valorBNB){
+    let bnbConvertido = cantidadPesos * valorBNB
+    return bnbConvertido
+}
+
+function convertirCriptoBTC(pesosIngresados, valorBTC){
+    let cantidadBTC = pesosIngresados / valorBTC
+    return cantidadBTC
+}
+
+function convertirCriptoETH(pesosIngresados, valorETH){
+    let cantidadETH = pesosIngresados / valorETH
+    return cantidadETH
+}
+
+function convertirCriptoDOGE(pesosIngresados, valorDOGE){
+    let cantidadDOGE = pesosIngresados / valorDOGE
+    return cantidadDOGE
+}
+
+function convertirCriptoUSDT(pesosIngresados, valorUSDT){
+    let cantidadUSDT = pesosIngresados / valorUSDT
+    return cantidadUSDT
+}
+
+function convertirCriptoTRX(pesosIngresados, valorTRX){
+    let cantidadTRX = pesosIngresados / valorTRX
+    return cantidadTRX
+}
+
+function convertirCriptoBNB(pesosIngresados, valorBNB){
+    let cantidadBNB = pesosIngresados / valorBNB
+    return cantidadBNB
+}
+
+let valorBitcoin = 63237532.37
+let valorEthereum = 3360512.73
+let valorDogecoin = 134.29
+let valorTether = 906.48
+let valorTrx = 105.94
+let valorBinance = 610579.91
 
 let seguirConvirtiendo = false
 
@@ -34,39 +91,29 @@ if (opcionPrincipal === 1){
         }
         switch (opcionElegida1){
             case 1:
-                let valorBitcoin = 63237532.37
                 alert("La conversión se realizo con éxito")
-                alert("La cantidad de BITCOIN que obtuvo es: " + convertirCripto(pesosIngresados, valorBitcoin))
+                alert("La cantidad de BITCOIN que obtuvo es: " + convertirCriptoBTC(pesosIngresados, valorBitcoin))
                 break
             case 2:
-                let valorEthereum = 3360512.73
                 alert("La conversión se realizo con éxito")
-                alert("La cantidad de ETHEREUM que obtuvo es: " + convertirCripto(pesosIngresados, valorEthereum))
+                alert("La cantidad de ETHEREUM que obtuvo es: " + convertirCriptoETH(pesosIngresados, valorEthereum))
                 break
             case 3:
-                let valorDogecoin = 134.29
+                
                 alert("La conversión se realizo con éxito")
-                alert("La cantidad de DOGECOIN que obtuvo es: " + convertirCripto(pesosIngresados, valorDogecoin))
+                alert("La cantidad de DOGECOIN que obtuvo es: " + convertirCriptoDOGE(pesosIngresados, valorDogecoin))
                 break
             case 4:
-                let valorTether = 906.48
                 alert("La conversión se realizo con éxito")
-                alert("La cantidad de TETHER (USDT) que obtuvo es: " + convertirCripto(pesosIngresados, valorTether))
+                alert("La cantidad de TETHER (USDT) que obtuvo es: " + convertirCriptoUSDT(pesosIngresados, valorTether))
                 break
             case 5:
-                let valorTrx = 105.94
                 alert("La conversión se realizo con éxito")
-                alert("La cantidad de USDC que obtuvo es: " + convertirCripto(pesosIngresados, valorTrx))
+                alert("La cantidad de USDC que obtuvo es: " + convertirCriptoTRX(pesosIngresados, valorTrx))
                 break
             case 6:
-                let valorBinance = 610579.91
                 alert("La conversión se realizo con éxito")
-                alert("La cantidad de BNB que obtuvo es: " + convertirCripto(pesosIngresados, valorBinance))
-                break
-            case 7:
-                let valorDolar = 907.12
-                alert("La conversión se realizo con éxito")
-                alert("La cantidad de dólares que obtuvo es: " + convertirCripto(pesosIngresados, valorDolar))
+                alert("La cantidad de BNB que obtuvo es: " + convertirCriptoBNB(pesosIngresados, valorBinance))
                 break
             default:
                 alert("La opción elegida no es valida. Ingrese una opcion del 1 al 6.")
@@ -82,64 +129,58 @@ if (opcionPrincipal === 2){
 
             switch (opcionElegida2){
                 case 1:
-                    let valorBitcoin = 63237532.37
                     let bitcoinIngresado = Number(prompt("Ingrese la cantidad de BTC que desea convertir a $ARS: "))
                     while (isNaN(bitcoinIngresado)){
                         alert("Ingrese una cantidad válida")
                         bitcoinIngresado = Number(prompt("Ingrese la cantidad de BTC que desea convertir a $ARS: "))
                     }
                     alert("La conversión se realizo con exito")
-                    alert("La cantidad de $ARS que obtuvo es: " + convertirARS(bitcoinIngresado, valorBitcoin))
+                    alert("La cantidad de $ARS que obtuvo es: " + convertirArsBTC(bitcoinIngresado, valorBitcoin))
                     break
                 case 2:
-                    let valorEthereum = 3360512.73
                     let ethereumIngresado = Number(prompt("Ingrese la cantidad de ETH que desea convertir a $ARS: "))
                     while(isNaN(ethereumIngresado)){
                         alert("Ingrese una cantidad válida")
                         ethereumIngresado = Number(prompt("Ingrese la cantidad de ETH que desea convertir a $ARS: "))
                     }
                     alert("La conversión se realizo con exito")
-                    alert("La cantidad de $ARS que obtuvo es: " + convertirARS(ethereumIngresado, valorEthereum))
+                    alert("La cantidad de $ARS que obtuvo es: " + convertirArsETH(ethereumIngresado, valorEthereum))
                     break
                 case 3:
-                    let valorDogecoin = 134.29
                     let dogecoinIngresado = Number(prompt("Ingrese la cantidad de DOGE que desea convertir a $ARS: "))
                     while (isNaN(dogecoinIngresado)){
                         alert("Ingrese una cantidad válida")
                         dogecoinIngresado = Number(prompt("Ingrese la cantidad de DOGE que desea convertir a $ARS: "))
                     }
                     alert("La conversion se realizo con exito")
-                    alert("La cantidad de $ARS que obtuvo es: " + convertirARS(dogecoinIngresado, valorDogecoin))
+                    alert("La cantidad de $ARS que obtuvo es: " + convertirArsDOGE(dogecoinIngresado, valorDogecoin))
                     break
                 case 4:
-                    let valorTether = 906.48
                     let tetherIngresado = Number(prompt("Ingrese la cantidad de USDT que desea convertir a $ARS: "))
                     while (isNaN(tetherIngresado)){
                         alert("Ingrese una cantidad válida")
                         tetherIngresado = Number(prompt("Ingrese la cantidad de USDT que desea convertir a $ARS: "))
                     }
                     alert("La conversión se realizo con exito")
-                    alert("La cantidad de $ARS que obtuvo es: " + convertirARS(tetherIngresado, valorTether))
+                    alert("La cantidad de $ARS que obtuvo es: " + convertirArsUSDT(tetherIngresado, valorTether))
                     break
                 case 5:
-                    let valorTrx = 105.94
                     let trxIngresado = Number(prompt("Ingrese la cantidad de TRX que desea convertir a $ARS: "))
                     while (isNaN(trxIngresado)){
                         alert("Ingrese una cantidad válida")
                         trxIngresado = Number(prompt("Ingrese la cantidad de TRX que desea convertir a $ARS: "))
                     }
                     alert("La conversión se realizo con exito")
-                    alert("La cantidad de $ARS que obtuvo es: " + convertirARS(trxIngresado, valorTrx))
+                    alert("La cantidad de $ARS que obtuvo es: " + convertirArsTRX(trxIngresado, valorTrx))
                     break
                 case 6:
-                    let valorBinance = 610579.91
                     let binanceIngresado = Number(prompt("Ingrese la cantidad de BNB que desea convertir a $ARS: "))
                     while (isNaN(binanceIngresado)){
                         alert("Ingrese una cantidad válida")
                         binanceIngresado = Number(prompt("Ingrese la cantidad de BNB que desea convertir a $ARS: "))
                     }
                     alert("La conversión se realizo con exito")
-                    alert("La cantidad de $ARS que obtuvo es: " + convertirARS(binanceIngresado, valorBinance))
+                    alert("La cantidad de $ARS que obtuvo es: " + convertirArsBNB(binanceIngresado, valorBinance))
                     break
                 default:
                     alert("La opción elegida no es válida. Ingrese una opción del 1 al 6.")
