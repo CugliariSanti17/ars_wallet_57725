@@ -1,6 +1,6 @@
 class Conversion {
     constructor(tipo, cantidadARS, cantidadCripto, moneda) {
-        this.idConversion = generarId() // Numero de transaccion
+        this.idConversion = generarId() // Numero de transaccion aleatorio
         this.tipo = tipo; // "ARS a Cripto" o "Cripto a ARS"
         this.cantidadARS = cantidadARS;
         this.cantidadCripto = cantidadCripto;
@@ -79,7 +79,7 @@ do {
             let pesosIngresados = Number(prompt("Ingrese la cantidad de pesos a convertir: $"));
             validarPesos(pesosIngresados)
 
-            if (valoresCripto[opcionElegida1]){
+            if (valoresCripto[opcionElegida1]){ // Validar opciones 
                 let cantidadConvertida = convertirARSACripto(pesosIngresados, valoresCripto[opcionElegida1].valor);
                 let conversion = new Conversion("$ARS a Cripto", pesosIngresados, cantidadConvertida, valoresCripto[opcionElegida1].nombre);
                 historialConversiones.push(conversion);
@@ -95,7 +95,7 @@ do {
             let criptoIngresada = Number(prompt(`Ingrese la cantidad de ${valoresCripto[opcionElegida2].nombre} que desea convertir a $ARS:`));
             validarCripto(criptoIngresada)
 
-            if (valoresCripto[opcionElegida2]) {
+            if (valoresCripto[opcionElegida2]) { // Validar opciones
                 cantidadConvertida = convertirCriptoAARS(criptoIngresada, valoresCripto[opcionElegida2].valor);
                 let conversion = new Conversion("Cripto a $ARS", cantidadConvertida, criptoIngresada, valoresCripto[opcionElegida2].nombre);
                 historialConversiones.push(conversion);
@@ -119,18 +119,18 @@ do {
             let opcionFiltrar = parseInt(prompt("1. BTC | 2. ETH | 3. DOGE | 4. USDT | 5. TRX | 6. BNB"));
             validarOpcion(opcionFiltrar)
 
-            if (valoresCripto[opcionFiltrar]){
+            if (valoresCripto[opcionFiltrar]){ //Validar opciones
                 if (historialConversiones.length === 0){
                     alert("El historial de conversiones está vacío.");
                 }else{
-                    let conversionesFiltradas = historialConversiones.filter(conversion => conversion.moneda === valoresCripto[opcionFiltrar].nombre);
+                    let conversionesFiltradas = historialConversiones.filter(conversion => conversion.moneda === valoresCripto[opcionFiltrar].nombre); // Crea array nuevo con los valore filtrados
                     if (conversionesFiltradas.length === 0){
                         alert("No hay conversiones de este tipo");
                     }else{
                         alert(`Conversiones de ${valoresCripto[opcionFiltrar].nombre}:`)
                         conversionesFiltradas.forEach(conversion => {
                             alert(`N° de conversion: ${conversion.idConversion} - ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`);
-                        });
+                        }); // Recorre cada converision filtrada y lo muestra en pantalla
                     }
                 }
             }else{
