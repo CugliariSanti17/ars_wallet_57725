@@ -66,7 +66,7 @@ do {
     let opcionPrincipal = parseInt(prompt("1. Convertir $ARS a moneda virtual | 2. Convertir moneda virtual a $ARS | 3. Ver ultimas conversiones | 4. Filtrar conversiones "));
     validarOpcion (opcionPrincipal)
 
-    while (opcionPrincipal !== 1 && (opcionPrincipal !== 2 && opcionPrincipal !== 3)){
+    while (opcionPrincipal !== 1 && (opcionPrincipal !== 2 && opcionPrincipal !== 3 && opcionPrincipal !== 4)){
         alert("Ingrese una opción válida")
         opcionPrincipal = parseInt(prompt("1. Convertir $ARS a moneda virtual | 2. Convertir moneda virtual a $ARS | 3. Ver ultimas conversiones | 4. Filtrar conversiones "));
     }
@@ -107,35 +107,36 @@ do {
         case 3:
             alert("Historial de conversiones: \n")
             ultimasConversiones = historialConversiones.forEach(conversion => {
-                alert(`N° de conversion: ${conversion.idConversion} - ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${Conversion.moneda}`);
+                alert(`N° de conversion: ${conversion.idConversion} - ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`);
             });
             // Limpiar historial cuando se llega a su límite de 10 conversiones
-            if (historialConversiones.length == 10){
+            if (historialConversiones.length === 10){
                 historialConversiones.shift(historialConversiones[0]);
             }
             break;
         case 4:
-            alert("Elige la moneda para filtrar sus conversiones: \n")
+            alert("Elige la moneda para filtrar sus conversiones: ")
             let opcionFiltrar = parseInt(prompt("1. BTC | 2. ETH | 3. DOGE | 4. USDT | 5. TRX | 6. BNB"));
             validarOpcion(opcionFiltrar)
 
-            if (historialConversiones.length > 0){
-                alert("El historial de conversiones está vacío.");
-            }else{
-                if (valoresCripto[opcionFiltrar]){
+            if (valoresCripto[opcionFiltrar]){
+                if (historialConversiones.length === 0){
+                    alert("El historial de conversiones está vacío.");
+                }else{
                     let conversionesFiltradas = historialConversiones.filter(conversion => conversion.moneda === valoresCripto[opcionFiltrar].nombre);
-                    if (conversionesFiltradas.length < 0){
+                    if (conversionesFiltradas.length === 0){
                         alert("No hay conversiones de este tipo");
                     }else{
-                        alert(`Conversiones de ${valoresCripto[opcionFiltrar].nombre}: \n`)
+                        alert(`Conversiones de ${valoresCripto[opcionFiltrar].nombre}:`)
                         conversionesFiltradas.forEach(conversion => {
                             alert(`N° de conversion: ${conversion.idConversion} - ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`);
                         });
                     }
-                }else{
-                    alert("La opción elegida no es válida. Ingrese una opción del 1 al 6.");
                 }
+            }else{
+                alert("La opción elegida no es válida. Ingrese una opción del 1 al 6.");
             }
+            break;
         default:
             alert("Ingrese una opcion del 1 al 4")
     }
