@@ -21,25 +21,36 @@ function convertirCriptoAARS(cantidadCripto, valorCripto) {
     return parseFloat(dosDecimales);
 }
 
-function validarOpcion(opcion) {
-    while (isNaN(opcion)) {
+function validarOpcionPrincipal(opcion) {
+    while (isNaN(opcion) || opcion === "") {
         alert("Ingrese una cantidad válida");
         opcion = parseInt(prompt("1. Convertir $ARS a moneda virtual | 2. Convertir moneda virtual a $ARS | 3. Ver últimas conversiones | 4. Filtrar conversiones "));
     }
+    return opcion;
+}
+
+function validarMoneda(moneda) {
+    while (isNaN(moneda) || moneda === "") {
+        alert("Ingrese una moneda válida");
+        moneda = prompt("1. BTC | 2. ETH | 3. DOGE | 4. USDT | 5. TRX | 6. BNB");
+    }
+    return moneda;
 }
 
 function validarPesos(pesos){
-    while (isNaN(pesos)){
+    while (isNaN(pesos) || pesos === ""){
         alert("Ingrese una cantidad válida en pesos")
         pesos = Number(prompt("Ingrese la cantidad de pesos a convertir: $"))
     }
+    return pesos;
 }
 
 function validarCripto(cripto){
-    while (isNaN(cripto)){
+    while (isNaN(cripto) || cripto === ""){
         alert("Ingrese una cantidad válida en cripto")
-        cripto = Number(prompt("Ingrese la cantidad de cripto a convertir: "))
+        cripto = Number(prompt("Ingrese la cantidad de cripto nuevamente: "))
     }
+    return cripto;
 }
 
 function generarId(){
@@ -69,15 +80,15 @@ alert("Bienvenido a ARS-WALLET, tu billetera virtual")
 
 do {
     let opcionPrincipal = parseInt(prompt("1. Convertir $ARS a moneda virtual | 2. Convertir moneda virtual a $ARS | 3. Ver ultimas conversiones | 4. Filtrar conversiones "));
-    validarOpcion (opcionPrincipal)
+    opcionPrincipal = validarOpcionPrincipal(opcionPrincipal)
 
     switch (opcionPrincipal){
         case 1:
             alert("Elige la moneda a la que desea convertir sus $ARS");
             let opcionElegida1 = parseInt(prompt("1. BTC | 2. ETH | 3. DOGE | 4. USDT | 5. TRX | 6. BNB"));
-            validarOpcion(opcionElegida1)
+            opcionElegida1 = validarMoneda(opcionElegida1)
             let pesosIngresados = Number(prompt("Ingrese la cantidad de pesos a convertir: $"));
-            validarPesos(pesosIngresados)
+            pesosIngresados = validarPesos(pesosIngresados)
 
             if (valoresCripto[opcionElegida1]){ // Validar opciones 
                 let cantidadConvertida = convertirARSACripto(pesosIngresados, valoresCripto[opcionElegida1].valor);
@@ -91,9 +102,9 @@ do {
         case 2:
             alert("Elija la moneda virtual para convertir a $ARS");
             let opcionElegida2 = parseInt(prompt("1. BTC | 2. ETH | 3. DOGE | 4. USDT | 5. TRX | 6. BNB"));
-            validarOpcion(opcionElegida2)
+            opcionElegida2 = validarMoneda(opcionElegida2)
             let criptoIngresada = Number(prompt(`Ingrese la cantidad de ${valoresCripto[opcionElegida2].nombre} que desea convertir a $ARS:`));
-            validarCripto(criptoIngresada)
+            criptoIngresada = validarCripto(criptoIngresada)
 
             if (valoresCripto[opcionElegida2]) { // Validar opciones
                 cantidadConvertida = convertirCriptoAARS(criptoIngresada, valoresCripto[opcionElegida2].valor);
@@ -109,9 +120,11 @@ do {
                 alert("No hay conversiones por mostrar")
             }else{
                 alert("Historial de conversiones: \n")
-                ultimasConversiones = historialConversiones.forEach(conversion => {alert(`- N° de conversion: ${conversion.idConversion} -\n ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`)});
+                ultimasConversiones = historialConversiones.forEach(conversion => {
+                    alert(`- N° de conversion: ${conversion.idConversion} -\n ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`)
+                });
             }
-            // Limpiar historial cuando se llega a su límite de 10 conversiones
+            // Limpiar la primer conversion cuando se llega al límite de 10 conversiones
             if (historialConversiones.length === 10){
                 historialConversiones.shift(historialConversiones[0]);
             }
@@ -119,7 +132,7 @@ do {
         case 4:
             alert("Elige la moneda para filtrar sus conversiones: ")
             let opcionFiltrar = parseInt(prompt("1. BTC | 2. ETH | 3. DOGE | 4. USDT | 5. TRX | 6. BNB"));
-            validarOpcion(opcionFiltrar)
+            opcionFiltrar = validarMoneda(opcionFiltrar)
 
             if (valoresCripto[opcionFiltrar]){ // Validar opciones
                 if (historialConversiones.length === 0){
