@@ -9,17 +9,22 @@ class Conversion {
 }
 
 function convertirARSACripto(cantidadPesos, valorCripto) {
-    return cantidadPesos / valorCripto;
+    let arsACripto = cantidadPesos / valorCripto;
+    let dosDecimales = arsACripto.toFixed(5);
+    return parseFloat(dosDecimales);
+
 }
 
 function convertirCriptoAARS(cantidadCripto, valorCripto) {
-    return cantidadCripto * valorCripto;
+    let criptoAARS = cantidadCripto * valorCripto;
+    let dosDecimales = criptoAARS.toFixed(5);
+    return parseFloat(dosDecimales);
 }
 
 function validarOpcion(opcion) {
     while (isNaN(opcion)) {
         alert("Ingrese una cantidad válida");
-        opcion = parseInt(prompt("1. Convertir $ARS a moneda virtual | 2. Convertir moneda virtual a $ARS | 3. Ver últimas conversiones"));
+        opcion = parseInt(prompt("1. Convertir $ARS a moneda virtual | 2. Convertir moneda virtual a $ARS | 3. Ver últimas conversiones | 4. Filtrar conversiones "));
     }
 }
 
@@ -66,11 +71,6 @@ do {
     let opcionPrincipal = parseInt(prompt("1. Convertir $ARS a moneda virtual | 2. Convertir moneda virtual a $ARS | 3. Ver ultimas conversiones | 4. Filtrar conversiones "));
     validarOpcion (opcionPrincipal)
 
-    while (opcionPrincipal !== 1 && (opcionPrincipal !== 2 && opcionPrincipal !== 3 && opcionPrincipal !== 4)){
-        alert("Ingrese una opción válida")
-        opcionPrincipal = parseInt(prompt("1. Convertir $ARS a moneda virtual | 2. Convertir moneda virtual a $ARS | 3. Ver ultimas conversiones | 4. Filtrar conversiones "));
-    }
-
     switch (opcionPrincipal){
         case 1:
             alert("Elige la moneda a la que desea convertir sus $ARS");
@@ -105,10 +105,12 @@ do {
             }
             break;
         case 3:
-            alert("Historial de conversiones: \n")
-            ultimasConversiones = historialConversiones.forEach(conversion => {
-                alert(`N° de conversion: ${conversion.idConversion} - ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`);
-            });
+            if (historialConversiones.length === 0){
+                alert("No hay conversiones por mostrar")
+            }else{
+                alert("Historial de conversiones: \n")
+                ultimasConversiones = historialConversiones.forEach(conversion => {alert(`- N° de conversion: ${conversion.idConversion} -\n ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`)});
+            }
             // Limpiar historial cuando se llega a su límite de 10 conversiones
             if (historialConversiones.length === 10){
                 historialConversiones.shift(historialConversiones[0]);
@@ -119,7 +121,7 @@ do {
             let opcionFiltrar = parseInt(prompt("1. BTC | 2. ETH | 3. DOGE | 4. USDT | 5. TRX | 6. BNB"));
             validarOpcion(opcionFiltrar)
 
-            if (valoresCripto[opcionFiltrar]){ //Validar opciones
+            if (valoresCripto[opcionFiltrar]){ // Validar opciones
                 if (historialConversiones.length === 0){
                     alert("El historial de conversiones está vacío.");
                 }else{
@@ -129,8 +131,8 @@ do {
                     }else{
                         alert(`Conversiones de ${valoresCripto[opcionFiltrar].nombre}:`)
                         conversionesFiltradas.forEach(conversion => {
-                            alert(`N° de conversion: ${conversion.idConversion} - ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`);
-                        }); // Recorre cada converision filtrada y lo muestra en pantalla
+                            alert(`- N° de conversion: ${conversion.idConversion} -\n ${conversion.tipo}: ${conversion.cantidadARS} $ARS <-> ${conversion.cantidadCripto} ${conversion.moneda}`);
+                        }); // Recorre cada conversión filtrada y lo muestra en pantalla
                     }
                 }
             }else{
