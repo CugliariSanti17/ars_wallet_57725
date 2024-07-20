@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/estilos.css">
+  <title>Simulador billetera virtual</title>
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/c225f8f68e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bgNav w-100">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-5 d-flex justify-content-center" href="#">
+          <img src="./assets/img/billetera.png" alt="logo billetera virtual" class="logoHeader me-2 text-center"><span class="arsLogo">ARS</span>-WALLET
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse me-5 linksContainer" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end align-items-end">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Conversiones
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="./pages/convertirPesos.html">$ARS a Cripto</a></li>
+                <li><a class="dropdown-item" href="./pages/convertirCripto.html">Cripto a $ARS</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Historial</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="headerText d-flex flex-column justify-content-start align-items-center text-center h-100">
+      <h1 class="headerTitle"><span class="arsTextHeader">ARS</span>-WALLET: TU BILLETERA VIRTUAL DE CONFIANZA</h1>
+      <p class="headerParraph">Con ARS-WALLET, tú puedes mantener tus fondos seguros y controlados. Compra, vende, y transfiere cripto y dinero con seguridad.</p>
+      <a href="#linksContainer" class="convertirButton">¡Convertir ya!</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="carouselContainer d-flex justify-content-center align-items-center">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/img/cifrado.png" class="carouselImg" alt="imagen de cifrado">
+            <h2 class="carouselTitle">Cifrado de extremo a extremo</h2>
+            <p class="carouselParraph">Todas las transacciones y datos almacenados en la billetera están protegidos con cifrado avanzado</p>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/img/proteger.png" class="carouselImg" alt="imagen de seguridad">
+            <h2 class="carouselTitle">Recuperación de cuenta segura</h2>
+            <p class="carouselParraph">En caso de pérdida de acceso, la billetera ofrece un proceso de recuperación robusto y seguro</p>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/img/seguro.png" class="carouselImg" alt="imagen de autenticación">
+            <h2 class="carouselTitle">Autenticación biométrica</h2>
+            <p class="carouselParraph">Utilizar huellas dactilares, reconocimiento facial u otros métodos biométricos para asegurar que solo el usuario autorizado pueda acceder a la billetera</p>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <section class="nosotrosContainer  container-fluid flex-column justify-content-center align-items-center">
+      <div class="quienesSomos">
+        <h3 class="text-center">¿Quienes somos?</h3>
+        <p class="text-center">En <span class="fw-bold textoNosotros">ARS-WALLET</span>, nos dedicamos a ofrecer una solución moderna y segura para gestionar tus finanzas digitales. Somos un equipo apasionado por la tecnología y la innovación, comprometidos con brindar una experiencia única en la administración de tus activos digitales. Nuestra billetera virtual está diseñada para facilitar el acceso y la conversión de ARS a diversas criptomonedas y viceversa, permitiéndote manejar tus fondos de manera eficiente y sin complicaciones. Creemos en un futuro donde las transacciones financieras sean accesibles, transparentes y seguras para todos. Únete a nosotros en este viaje hacia la revolución digital financiera.</p>
+      </div>
+    </section>
+
+    <div class="container-fluid convertirContainer">
+      <div class="row justify-content-center align-items-center w-100">
+        <div class="pesosACriptoContainer col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+          <h3>¡Convierte a cripto YA!</h3>
+          <a href="./pages/convertirPesos.html">IR</a>
+        </div>
+        <div class="criptoAPesosContainer col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+          <h3>¡Convierte a pesos YA!</h3>
+          <a href="./pages/convertirCripto.html">IR</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container-fluid">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <div class="footerLogo">
+        <a href="#">
+          <img src="./assets/img/billetera.png" alt="logo billetera virtual" class="logoHeader me-2 text-center"><span class="arsLogo">ARS</span>-WALLET
+        </a>
+      </div>
+      <div class="footerRedes d-flex justify-content-center align-items-center">
+        <a href="https://www.instagram.com/avianoshowroom/?hl=es-la" class="" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://web.whatsapp.com/" class="" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.tiktok.com/?lang=es" class="" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
