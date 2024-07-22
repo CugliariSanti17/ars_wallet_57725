@@ -204,6 +204,38 @@ footer{
     color: green;
 }
 
+.historialConversionesTitle{
+    margin: 20px;
+}
+
+.historialContainer{
+    margin: 20px;
+}
+.conversion{
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 100%;
+    text-align: left;
+    border: 1px solid black;
+    .conversion p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #555;
+    }
+    .conversionMonedas {
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c3e50;
+        background-color: #ecf0f1;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
 
 
 

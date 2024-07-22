@@ -1,2 +1,2 @@
-historialConversiones = document.getElementById('historialConversiones');
+
 

@@ -49,10 +49,9 @@ function mostrarConversion (conversion){
     const div = document.createElement('div');
     div.className = 'conversion';
     div.innerHTML += `
-        <p>Id: ${conversion.idConversion}</p>
-        <p>Tipo: ${conversion.tipo}</p>
-        <p>Moneda: ${conversion.moneda}</p>
-        <p>Cantidad en ${conversion.moneda}: ${conversion.cantidadARS} ARS</p>
+        <p>N° Conversion: ${conversion.idConversion}</p>
+        <p>Tipo: <strong>${conversion.tipo}</strong></p>
+        <p class="conversionMonedas">${conversion.cantidadARS}$ARS --> ${conversion.cantidadCripto} ${conversion.moneda}</p>
         `
     historialConversiones.appendChild(div);
 }
