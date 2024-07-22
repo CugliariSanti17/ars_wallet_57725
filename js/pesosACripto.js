@@ -24,6 +24,6 @@ convertButtonCripto.addEventListener('click', (e) => {
     historialConversiones.push(conversion);
 
     conversionMesagge.textContent = "¡La conversion se realizó con éxito!";
-
+    mostrarConversion(conversion);
 
 })
