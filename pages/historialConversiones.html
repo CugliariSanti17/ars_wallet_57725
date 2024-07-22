@@ -47,7 +47,27 @@
   </header>
 
   <main>
-    <h3 class="historialConversionesTitle">Ultimas conversiones:</h3>
+    <div class="titleContainer d-flex">
+      <div>
+        <h3 class="historialConversionesTitle">Ultimas conversiones</h3>
+      </div>
+      <div class="filtrarConversiones">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-list"></i> Filtrar conversiones
+          </button>
+          <ul class="dropdown-menu" id="filtrarDropdown" aria-labelledby="dropdownMenuButton1">
+            <li value="1"><a class="dropdown-item" href="#"><img src="../assets/img/bitcoin.png" alt="logo BTC"> BTC</a></li>
+            <li value="2"><a class="dropdown-item" href="#"><img src="../assets/img/ethereum.png" alt="logo ETH"> ETH</a></li>
+            <li value="3"><a class="dropdown-item" href="#"><img src="../assets/img/dogecoin.png" alt=""> DOGE</a></li>
+            <li value="4"><a class="dropdown-item" href="#"><img src="../assets/img/usdt.png" alt="logo USDT"> USDT</a></li>
+            <li value="5"><a class="dropdown-item" href="#"><img src="../assets/img/tron.png" alt="logo TRX"> TRX</a></li>
+            <li value="6"><a class="dropdown-item" href="#"><img src="../assets/img/bnb.png" alt="logo BNB"> BNB</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
     <div class="historialContainer" id="historialConversiones">
       
 
