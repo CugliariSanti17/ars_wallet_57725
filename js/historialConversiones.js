@@ -10,3 +10,8 @@ filterDropdown.addEventListener("click", () => {
     });
 })
 
+// Limpiar la primer conversion cuando se llega al límite de 10 conversiones
+if (historialConversiones.length === 10){
+    historialConversiones.shift(historialConversiones[0]);
+}
+

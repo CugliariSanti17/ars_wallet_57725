@@ -1,5 +1,6 @@
 class Conversion {
     constructor(tipo, cantidadARS, cantidadCripto, moneda) {
+        this.fechaConversion = new Date().toLocaleString();
         this.idConversion = generarId() // Numero de transaccion aleatorio
         this.tipo = tipo; // "ARS a Cripto" o "Cripto a ARS"
         this.cantidadARS = cantidadARS;
@@ -32,23 +33,13 @@ function generarId(){
     return numeroConversion;
 }
 
-const valoresCripto = {
-    1: { nombre: "BTC", valor: 63237532.37 },
-    2: { nombre: "ETH", valor: 3360512.73 },
-    3: { nombre: "DOGE", valor: 134.29 },
-    4: { nombre: "USDT", valor: 906.48 },
-    5: { nombre: "TRX", valor: 105.94 },
-    6: { nombre: "BNB", valor: 610579.91 }
-};
-
-let historialConversiones = JSON.parse(localStorage.getItem("historial")) || [];
-
 function mostrarConversion (conversion){
     const historialConversiones = document.getElementById('historialConversiones');
 
     const div = document.createElement('div');
     div.classList.add = 'conversion';
     div.innerHTML += `
+        <p>Fecha: ${conversion.fechaConversion}</p>
         <p>N° Conversion: ${conversion.idConversion}</p>
         <p>Tipo: <strong>${conversion.tipo}</strong></p>
         <p class="conversionMonedas">${conversion.cantidadARS}$ARS --> ${conversion.cantidadCripto} ${conversion.moneda}</p>
@@ -60,8 +51,17 @@ function guardarHistorial (historial){
     localStorage.setItem("historial", JSON.stringify(historial))
 }
 
+const valoresCripto = {
+    1: { nombre: "BTC", valor: 63237532.37 },
+    2: { nombre: "ETH", valor: 3360512.73 },
+    3: { nombre: "DOGE", valor: 134.29 },
+    4: { nombre: "USDT", valor: 906.48 },
+    5: { nombre: "TRX", valor: 105.94 },
+    6: { nombre: "BNB", valor: 610579.91 }
+};
+
+let historialConversiones = JSON.parse(localStorage.getItem("historial")) || [];
 
 document.addEventListener('DOMContentLoaded', () =>{
-    mostrarConversion(Conversion)
+    mostrarConversion(historialConversiones)
 })
-

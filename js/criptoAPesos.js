@@ -23,7 +23,7 @@ convertButton.addEventListener('click', (e) => {
     let conversion = new Conversion("Cripto a $ARS", cantidadConvertida, criptoIngresada, valoresCripto[monedaElegida].nombre);
     historialConversiones.push(conversion);
 
-    conversionMesagge.textContent = "¡La conversion se realizó con éxito!";
     mostrarConversion(conversion);
+    conversionMesagge.textContent = "¡La conversion se realizó con éxito!";
     guardarHistorial(historialConversiones);
 });
