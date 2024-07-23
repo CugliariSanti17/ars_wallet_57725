@@ -41,13 +41,13 @@ const valoresCripto = {
     6: { nombre: "BNB", valor: 610579.91 }
 };
 
-let historialConversiones = [];
+let historialConversiones = JSON.parse(localStorage.getItem("historial")) || [];
 
 function mostrarConversion (conversion){
     const historialConversiones = document.getElementById('historialConversiones');
 
     const div = document.createElement('div');
-    div.className = 'conversion';
+    div.classList.add = 'conversion';
     div.innerHTML += `
         <p>N° Conversion: ${conversion.idConversion}</p>
         <p>Tipo: <strong>${conversion.tipo}</strong></p>
@@ -55,3 +55,13 @@ function mostrarConversion (conversion){
         `
     historialConversiones.appendChild(div);
 }
+
+function guardarHistorial (historial){
+    localStorage.setItem("historial", JSON.stringify(historial))
+}
+
+
+document.addEventListener('DOMContentLoaded', () =>{
+    mostrarConversion(Conversion)
+})
+

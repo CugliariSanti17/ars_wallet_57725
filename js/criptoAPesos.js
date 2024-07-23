@@ -25,4 +25,5 @@ convertButton.addEventListener('click', (e) => {
 
     conversionMesagge.textContent = "¡La conversion se realizó con éxito!";
     mostrarConversion(conversion);
+    guardarHistorial(historialConversiones);
 });
