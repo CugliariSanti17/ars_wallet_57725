@@ -4,6 +4,11 @@ const cantidadCripto = document.getElementById('cantidadCripto');
 const convertButton = document.getElementById('convertButton');
 const conversionMesagge = document.querySelector('.conversionMesagge')
 
+function guardarConversionEnLocalStorage(conversion) {
+  historialConversiones.push(conversion);
+  localStorage.setItem('historialConversiones', JSON.stringify(historialConversiones));
+}
+
 // Event listener para el boton de convertir
 
 convertButton.addEventListener('click', (e) => {
@@ -42,10 +47,9 @@ convertButton.addEventListener('click', (e) => {
 
     // Conversion a pesos
     let cantidadConvertida = convertirCriptoAARS(criptoIngresada, valoresCripto[monedaElegida].valor)
-    let conversion = new Conversion("Cripto a $ARS", cantidadConvertida, criptoIngresada, valoresCripto[monedaElegida].nombre);
-    historialConversiones.push(conversion);
+    let conversion = new Conversion("Cripto a $ARS", cantidadConvertida, criptoIngresada, valoresCripto[monedaElegida].nombre);  
+    guardarConversionEnLocalStorage(conversion);
 
-    mostrarConversion(conversion);
     Swal.fire({
         title: "¡Conversion exitosa",
         text: "La conversion se realizó con éxito!",
@@ -68,5 +72,5 @@ convertButton.addEventListener('click', (e) => {
           `
         }
       });
-    guardarHistorial(historialConversiones);
+    //guardarHistorial(historialConversiones);
 });

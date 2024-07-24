@@ -33,9 +33,9 @@ function generarId(){
     return numeroConversion;
 };
 
-function guardarHistorial (historial){
-    localStorage.setItem("historial", JSON.stringify(historial))
-}
+//function guardarHistorial (historial){
+//    localStorage.setItem("historial", JSON.stringify(historial))
+//}
 
 const valoresCripto = {
     1: { nombre: "BTC", valor: 63237532.37 },
