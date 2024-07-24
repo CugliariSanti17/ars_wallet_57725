@@ -7,20 +7,20 @@ class Conversion {
         this.cantidadCripto = cantidadCripto;
         this.moneda = moneda;
     }
-}
+};
 
 function convertirARSACripto(cantidadPesos, valorCripto) {
     let arsACripto = cantidadPesos / valorCripto;
     let dosDecimales = arsACripto.toFixed(5);
     return parseFloat(dosDecimales);
 
-}
+};
 
 function convertirCriptoAARS(cantidadCripto, valorCripto) {
     let criptoAARS = cantidadCripto * valorCripto;
     let dosDecimales = criptoAARS.toFixed(5);
     return parseFloat(dosDecimales);
-}
+};
 
 function generarId(){
     let numeroConversion = "";
@@ -31,21 +31,21 @@ function generarId(){
     }
 
     return numeroConversion;
-}
+};
 
 function mostrarConversion (conversion){
     const historialConversiones = document.getElementById('historialConversiones');
 
     const div = document.createElement('div');
-    div.classList.add = 'conversion';
-    div.innerHTML += `
+    div.classList.add('conversion');
+    div.innerHTML = `
         <p>Fecha: ${conversion.fechaConversion}</p>
         <p>N° Conversion: ${conversion.idConversion}</p>
         <p>Tipo: <strong>${conversion.tipo}</strong></p>
         <p class="conversionMonedas">${conversion.cantidadARS}$ARS --> ${conversion.cantidadCripto} ${conversion.moneda}</p>
         `
     historialConversiones.appendChild(div);
-}
+};
 
 function guardarHistorial (historial){
     localStorage.setItem("historial", JSON.stringify(historial))
@@ -62,6 +62,6 @@ const valoresCripto = {
 
 let historialConversiones = JSON.parse(localStorage.getItem("historial")) || [];
 
-document.addEventListener('DOMContentLoaded', () =>{
-    mostrarConversion(historialConversiones)
-})
+//document.addEventListener('DOMContentLoaded', () =>{
+//    mostrarConversion(historialConversiones)
+//});

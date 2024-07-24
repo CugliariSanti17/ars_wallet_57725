@@ -1,11 +1,12 @@
+
 const selectOption = document.getElementById('optionsCripto1');
 const cantidadPesos = document.getElementById('cantidadPesos');
-const convertButton = document.getElementById('convertButtonCripto');
+const convertButton = document.getElementById('convertButton');
 const conversionMesagge = document.querySelector('.conversionMesagge')
 
 // Event listener para el boton de convertir
 
-convertButtonCripto.addEventListener('click', (e) => {
+convertButton.addEventListener('click', (e) => {
     e.preventDefault();
 
     // Obtencion de valores de criptomonedas
