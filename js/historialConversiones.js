@@ -36,4 +36,4 @@ if (historialConversiones.length === 10){
 }
 
 // Cargar el historial al cargar la página
-cargarHistorialDeLocalStorage();
+document.addEventListener('DOMContentLoaded', () => {cargarHistorialDeLocalStorage()});
