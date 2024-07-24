@@ -15,7 +15,28 @@ convertButton.addEventListener('click', (e) => {
 
     // Validacion de entrada
     if (!pesosIngresados || pesosIngresados <= 0) {
-        alert('Debe ingresar un monto positivo en pesos.');
+        Swal.fire({
+            title: "Error",
+            text: "Debe ingresar una cantidad positiva.",
+            icon: "error",
+            confirmButtonText: "Aceptar",
+            showConfirmButton: true,
+            showCancelButton: false,
+            showClass: {
+              popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+              `
+            },
+            hideClass: {
+              popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+              `
+            }
+          });
         return;
     }
 
@@ -25,7 +46,28 @@ convertButton.addEventListener('click', (e) => {
     historialConversiones.push(conversion);
 
     mostrarConversion(conversion);
-    conversionMesagge.textContent = "¡La conversion se realizó con éxito!";
+    Swal.fire({
+        title: "¡Conversion exitosa",
+        text: "La conversion se realizó con éxito!",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        showConfirmButton: true,
+        showCancelButton: false,
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+        }
+      });
     guardarHistorial(historialConversiones);
 
 })
