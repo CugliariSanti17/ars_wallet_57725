@@ -14,7 +14,7 @@ convertButton.addEventListener('click', (e) => {
     const criptoIngresada = cantidadCripto.value;
 
     // Validacion de entrada
-    if (!cantidadIngresada || cantidadIngresada <= 0) {
+    if (!criptoIngresada || criptoIngresada <= 0) {
         Swal.fire({
             title: "Error",
             text: "Debe ingresar una cantidad positiva.",
