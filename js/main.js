@@ -46,7 +46,7 @@ const valoresCripto = {
     6: { nombre: "BNB", valor: 610579.91 }
 };
 
-let historialConversiones = JSON.parse(localStorage.getItem("historial")) || [];
+let historialConversiones = JSON.parse(localStorage.getItem('historialConversiones')) || [];
 
 //document.addEventListener('DOMContentLoaded', () =>{
 //    mostrarConversion(historialConversiones)

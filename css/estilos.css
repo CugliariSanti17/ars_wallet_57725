@@ -186,7 +186,7 @@ footer{
 }
 
 .form-group{
-    margin: 10px;
+    margin: 5px;
     margin-bottom: 15px;
      input{
         width: 500px;
@@ -220,6 +220,8 @@ footer{
     max-width: 100%;
     text-align: left;
     border: 1px solid black;
+    margin: 10px;
+    margin: 10px;
     .conversion p {
         margin: 10px 0;
         font-size: 16px;
