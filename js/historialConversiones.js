@@ -9,7 +9,7 @@ function mostrarConversion (conversion){
         <p>Fecha: ${conversion.fechaConversion}</p>
         <p>N° Conversion: ${conversion.idConversion}</p>
         <p>Tipo: <strong>${conversion.tipo}</strong></p>
-        <p class="conversionMonedas">${conversion.cantidadARS}$ARS <---> ${conversion.cantidadCripto} ${conversion.moneda}</p>
+        <p class="conversionMonedas">${conversion.cantidadARS} $ARS ⟷ ${conversion.cantidadCripto} ${conversion.moneda} <img class="ms-2" src="${conversion.imagen}" alt="logo ${conversion.moneda}"></p>
         `
     historialContainer.appendChild(div);
 };
@@ -22,7 +22,6 @@ function cargarHistorialDeLocalStorage() {
 }
 
 function filtroConversion(){
-   
     filterDropdown.addEventListener("click", (e) => {
         e.preventDefault();
         

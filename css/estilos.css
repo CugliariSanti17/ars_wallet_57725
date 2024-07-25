@@ -211,7 +211,7 @@ footer{
 .historialContainer{
     margin: 20px;
 }
-.conversion{
+.conversion {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
@@ -219,24 +219,33 @@ footer{
     width: 500px;
     max-width: 100%;
     text-align: left;
-    border: 1px solid black;
+    border: 1px solid #e0e0e0;
     margin: 10px;
-    margin: 10px;
-    .conversion p {
-        margin: 10px 0;
-        font-size: 16px;
-        color: #555;
-    }
-    .conversionMonedas {
-        font-size: 18px;
-        font-weight: bold;
-        color: #2c3e50;
-        background-color: #ecf0f1;
-        padding: 15px;
-        border-radius: 8px;
-        text-align: center;
-        margin-top: 20px;
-    }
+    font-family: 'Arial', sans-serif;
+}
+
+.conversion p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.conversion strong {
+    color: #3498db;
+}
+
+.conversionMonedas {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .filtrarConversiones{

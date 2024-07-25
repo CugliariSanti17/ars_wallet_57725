@@ -29,9 +29,9 @@ convertButton.addEventListener('click', (e) => {
       showCancelButton: false,
       showClass: {
         popup: `
-        animate__animated
-        animate__fadeInUp
-        animate__faster
+          animate__animated
+          animate__fadeInUp
+          animate__faster
         `
       },
       hideClass: {
@@ -47,12 +47,12 @@ convertButton.addEventListener('click', (e) => {
 
   //Conversion a criptomoneda
   let cantidadConvertida = convertirARSACripto(pesosIngresados, valoresCripto[monedaElegida].valor)
-  let conversion = new Conversion("$ARS a Cripto", pesosIngresados, cantidadConvertida, valoresCripto[monedaElegida].nombre);
+  let conversion = new Conversion("$ARS a Cripto", pesosIngresados, cantidadConvertida, valoresCripto[monedaElegida].nombre, valoresCripto[monedaElegida].img);
   guardarConversionEnLocalStorage(conversion);
 
   Swal.fire({
-    title: "¡Conversion exitosa",
-    text: "La conversion se realizó con éxito!",
+    title: "¡Conversion exitosa!",
+    text: "¡La conversion se realizó con éxito!",
     icon: "success",
     confirmButtonText: "Aceptar",
     showConfirmButton: true,
@@ -72,5 +72,4 @@ convertButton.addEventListener('click', (e) => {
       `
     }
   });
-  //guardarHistorial(historialConversiones);
 })
