@@ -12,7 +12,7 @@ class Conversion {
 
 function convertirARSACripto(cantidadPesos, valorCripto) {
     let arsACripto = cantidadPesos / valorCripto;
-    arsACripto = Math.round(arsACripto * 100) / 100;
+    arsACripto = Math.round(arsACripto * 100000) / 1000000;
     return arsACripto;
 };
 
