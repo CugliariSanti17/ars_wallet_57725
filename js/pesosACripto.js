@@ -46,10 +46,19 @@ convertButton.addEventListener('click', (e) => {
   }
 
   //Conversion a criptomoneda
-  let cantidadConvertida = convertirARSACripto(pesosIngresados, valoresCripto[monedaElegida].valor)
-  let conversion = new Conversion("$ARS a Cripto", pesosIngresados, cantidadConvertida, valoresCripto[monedaElegida].nombre, valoresCripto[monedaElegida].img);
-  guardarConversionEnLocalStorage(conversion);
 
+  fetch(`https://api.coingecko.com/api/v3/coins/${monedaElegida}`)
+   .then(response => response.json())
+   .then(data => {
+      const cantidadConvertida = data.name;
+      const nombreMoneda = data.market_data.current_price.ars;
+      const monedaImg = data.image.small;
+
+      let conversion = new Conversion("$ARS a Cripto", pesosIngresados, cantidadConvertida, nombreMoneda, monedaImg);
+      guardarConversionEnLocalStorage(conversion);
+    });
+  //let cantidadConvertida = convertirARSACripto(pesosIngresados, valoresCripto[monedaElegida].valor)
+  
   Swal.fire({
     title: "¡Conversion exitosa!",
     text: "¡La conversion se realizó con éxito!",

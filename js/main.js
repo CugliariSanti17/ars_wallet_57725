@@ -33,14 +33,14 @@ function generarId(){
     return numeroConversion;
 };
 
-const valoresCripto = {
-    1: { nombre: "BTC", valor: 63237532.37, img: "../assets/img/bitcoin.png"},
-    2: { nombre: "ETH", valor: 3360512.73, img: "../assets/img/ethereum.png"},
-    3: { nombre: "DOGE", valor: 134.29, img: "../assets/img/dogecoin.png"},
-    4: { nombre: "USDT", valor: 906.48, img: "../assets/img/usdt.png"},
-    5: { nombre: "TRX", valor: 105.94, img: "../assets/img/tron.png"},
-    6: { nombre: "BNB", valor: 610579.91, img: "../assets/img/bnb.png"},
-};
+//const valoresCripto = {
+//    1: { nombre: "BTC", valor: 63237532.37, img: "../assets/img/bitcoin.png"},
+//    2: { nombre: "ETH", valor: 3360512.73, img: "../assets/img/ethereum.png"},
+//  3: { nombre: "DOGE", valor: 134.29, img: "../assets/img/dogecoin.png"},
+//    4: { nombre: "USDT", valor: 906.48, img: "../assets/img/usdt.png"},
+//    5: { nombre: "TRX", valor: 105.94, img: "../assets/img/tron.png"},
+//    6: { nombre: "BNB", valor: 610579.91, img: "../assets/img/bnb.png"},
+//};
 
 let historialConversiones = JSON.parse(localStorage.getItem('historialConversiones')) || [];
 
