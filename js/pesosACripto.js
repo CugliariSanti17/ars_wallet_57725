@@ -50,8 +50,9 @@ convertButton.addEventListener('click', (e) => {
   fetch(`https://api.coingecko.com/api/v3/coins/${monedaElegida}`)
    .then(response => response.json())
    .then(data => {
-      const cantidadConvertida = data.name;
-      const nombreMoneda = data.market_data.current_price.ars;
+      const valorCripto = data.market_data.current_price.ars;
+      const cantidadConvertida = convertirARSACripto(pesosIngresados, valorCripto);
+      const nombreMoneda = data.name;
       const monedaImg = data.image.small;
 
       let conversion = new Conversion("$ARS a Cripto", pesosIngresados, cantidadConvertida, nombreMoneda, monedaImg);

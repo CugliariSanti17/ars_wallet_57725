@@ -25,7 +25,7 @@ function filtroConversion(){
     filterDropdown.addEventListener("click", (e) => {
         e.preventDefault();
         
-        let selectedFilter = e.target.closest("li").dataset.value;
+        let monedaFiltrada = e.target.closest("li").dataset.value;
 
         // Limpiar el historial antes de filtrar
         historialContainer.innerHTML = '';
@@ -33,12 +33,18 @@ function filtroConversion(){
         if (selectedFilter === "0"){
             cargarHistorialDeLocalStorage();
         }else{
-            let conversionesFiltradas = historialConversiones.filter(conversion => conversion.moneda === valoresCripto[selectedFilter].nombre); // Crea array nuevo con los valore filtrados
-            conversionesFiltradas.forEach(conversion => {
-                mostrarConversion(conversion);
-            });
-        }    
-    })
+            fetch(`https://api.coingecko.com/api/v3/coins/${monedaFiltrada}`)
+            .then(response => response.json())
+            .then(data => {
+                nombreMoneda = data.name;
+
+                let conversionesFiltradas = historialConversiones.filter(conversion => conversion.moneda === nombreMoneda); // Crea array nuevo con los valore filtrados
+                conversionesFiltradas.forEach(conversion => {
+                    mostrarConversion(conversion);
+                });
+            });  
+        };    
+    });
 }
     
 
