@@ -30,23 +30,22 @@ function filtroConversion(){
         // Limpiar el historial antes de filtrar
         historialContainer.innerHTML = '';
 
-        if (selectedFilter === "0"){
+        if (monedaFiltrada === "0"){
             cargarHistorialDeLocalStorage();
         }else{
             fetch(`https://api.coingecko.com/api/v3/coins/${monedaFiltrada}`)
-            .then(response => response.json())
-            .then(data => {
-                nombreMoneda = data.name;
+                .then(response => response.json())
+                .then(data => {
+                    const nombreMoneda = data.name;
 
-                let conversionesFiltradas = historialConversiones.filter(conversion => conversion.moneda === nombreMoneda); // Crea array nuevo con los valore filtrados
-                conversionesFiltradas.forEach(conversion => {
-                    mostrarConversion(conversion);
-                });
-            });  
+                    let conversionesFiltradas = historialConversiones.filter(conversion => conversion.moneda === nombreMoneda); // Crea array nuevo con los valores filtrados
+                    conversionesFiltradas.forEach(conversion => {
+                        mostrarConversion(conversion);
+                    });
+                });  
         };    
     });
 }
-    
 
 // Limpiar la primer conversion cuando se llega al límite de 10 conversiones
 if (historialConversiones.length > 10){
