@@ -2,15 +2,39 @@
 const selectOption = document.getElementById('optionsCripto2');
 const cantidadCripto = document.getElementById('cantidadCripto');
 const convertButton = document.getElementById('convertButton');
-const conversionMesagge = document.querySelector('.conversionMesagge')
+const historialCripto = document.getElementById('historialCripto');
 
 function guardarConversionEnLocalStorage(conversion) {
   historialConversiones.push(conversion);
   localStorage.setItem('historialConversiones', JSON.stringify(historialConversiones));
 }
 
-// Event listener para el boton de convertir
+function guardarConversionesCriptoAPesos(conversion){
+  historialCriptoAArs.push(conversion);
+  localStorage.setItem('historialCriptoAArs', JSON.stringify(historialCriptoAArs));
+}
 
+function mostrarHistorialCripto(conversion){
+  const div = document.createElement('div');
+  div.classList.add('conversion');
+  div.innerHTML += `
+    <p>Fecha: ${conversion.fechaConversion}</p>
+    <p>N° Conversion: ${conversion.idConversion}</p>
+    <p>Tipo: <strong>${conversion.tipo}</strong></p>
+    <p class="conversionMonedas">${conversion.cantidadARS} $ARS ⟷ ${conversion.cantidadCripto} ${conversion.moneda} <img class="ms-2" src="${conversion.imagen}" alt="logo ${conversion.moneda}"></p>
+  `
+  historialCripto.appendChild(div);
+}
+
+function mostrarConversionCriptoAPesos (){
+  historialCripto.innerHTML = "";
+
+  historialCriptoAArs.forEach(conversion => {
+    mostrarHistorialCripto(conversion)
+  });
+}
+
+// Event listener para el boton de convertir
 convertButton.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -54,8 +78,10 @@ convertButton.addEventListener('click', (e) => {
       const nombreMoneda = data.name;
       const monedaImg = data.image.small;
 
-      let conversion = new Conversion("Cripto a $ARS", criptoIngresada, cantidadConvertida, nombreMoneda, monedaImg);
+      let conversion = new Conversion("Cripto a $ARS", cantidadConvertida, criptoIngresada, nombreMoneda, monedaImg);
       guardarConversionEnLocalStorage(conversion);
+      guardarConversionesCriptoAPesos(conversion);
+      mostrarConversionCriptoAPesos();
     });
 
   Swal.fire({
@@ -80,4 +106,12 @@ convertButton.addEventListener('click', (e) => {
       `
     }
   });
+});
+
+if (historialCriptoAArs.length > 5){
+  historialCriptoAArs.shift(historialCriptoAArs[0])
+}
+
+document.addEventListener("DOMContentLoaded", () =>{
+  mostrarConversionCriptoAPesos()
 });

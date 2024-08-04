@@ -56,5 +56,4 @@ if (historialConversiones.length > 10){
 document.addEventListener('DOMContentLoaded', () => {
     cargarHistorialDeLocalStorage();
     filtroConversion();
-
 });

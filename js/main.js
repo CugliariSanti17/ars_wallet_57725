@@ -43,4 +43,8 @@ function generarId(){
 //};
 
 let historialConversiones = JSON.parse(localStorage.getItem('historialConversiones')) || [];
+let historialArsACripto = JSON.parse(localStorage.getItem('historialPesosACripto')) || [];;
+let historialCriptoAArs = JSON.parse(localStorage.getItem('historialCriptoAPesos')) || [];
+
+
 

@@ -2,15 +2,40 @@
 const selectOption = document.getElementById('optionsCripto1');
 const cantidadPesos = document.getElementById('cantidadPesos');
 const convertButton = document.getElementById('convertButton');
-const conversionMesagge = document.querySelector('.conversionMesagge')
+const historialPesos = document.getElementById('historialPesos');
 
 function guardarConversionEnLocalStorage(conversion) {
   historialConversiones.push(conversion);
   localStorage.setItem('historialConversiones', JSON.stringify(historialConversiones));
 }
 
-// Event listener para el boton de convertir
+function guardarConversionPesosACripto(conversion){
+  historialArsACripto.push(conversion);
+  localStorage.setItem('historialCriptoAPesos', JSON.stringify(historialArsACripto));
+}
 
+function mostrarHistorialPesos(conversion){
+    const div = document.createElement('div');
+    div.classList.add('conversion');
+    div.innerHTML += `
+      <p>Fecha: ${conversion.fechaConversion}</p>
+      <p>N° Conversion: ${conversion.idConversion}</p>
+      <p>Tipo: <strong>${conversion.tipo}</strong></p>
+      <p class="conversionMonedas">${conversion.cantidadARS} $ARS ⟷ ${conversion.cantidadCripto} ${conversion.moneda} <img class="ms-2" src="${conversion.imagen}" alt="logo ${conversion.moneda}"></p>
+    `
+    historialPesos.appendChild(div);
+}
+
+// Función para cargar y mostrar todas las conversiones $ARS a Cripto desde el localStorage
+function mostrarConversionPesosACripto (){
+  historialPesos.innerHTML = "";
+
+  historialArsACripto.forEach(conversion => {
+    mostrarHistorialPesos(conversion)
+  });
+}
+
+// Event listener para el boton de convertir
 convertButton.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -57,8 +82,9 @@ convertButton.addEventListener('click', (e) => {
 
       let conversion = new Conversion("$ARS a Cripto", pesosIngresados, cantidadConvertida, nombreMoneda, monedaImg);
       guardarConversionEnLocalStorage(conversion);
+      guardarConversionPesosACripto(conversion);
+      mostrarConversionPesosACripto();
     });
-  //let cantidadConvertida = convertirARSACripto(pesosIngresados, valoresCripto[monedaElegida].valor)
   
   Swal.fire({
     title: "¡Conversion exitosa!",
@@ -83,3 +109,11 @@ convertButton.addEventListener('click', (e) => {
     }
   });
 })
+
+if (historialArsACripto.lenght > 5){
+  historialArsACripto.shift(historialArsACripto[0])
+};
+
+document.addEventListener("DOMContentLoaded", () =>{
+  mostrarConversionPesosACripto();
+});

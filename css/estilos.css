@@ -244,6 +244,15 @@ footer{
     margin: 20px;
 }
 
+.historialCriptoPesosTitle{
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    strong{
+        color: #3498db;
+    }
+}
+
 .historialContainer{
     margin: 20px;
 }
