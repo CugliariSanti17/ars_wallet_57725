@@ -59,6 +59,21 @@ header{
     }
 }
 
+@media screen and (max-width: 768px){
+    header{
+        .headerText{
+            margin-top: 60px;
+        }
+        .headerText h1{
+            width: 500px;
+        }
+        .headerText p{
+            font-size: 18px;
+            width: 400px;
+        }
+    }
+}
+
 .carouselContainer{
     height: 350px;
     text-align: center;
@@ -161,6 +176,23 @@ header{
     }
 }
 
+@media screen and (max-width: 768px){
+    .convertirContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .pesosACriptoContainer{
+            max-width: 100%;
+            margin-right: initial;
+            margin-bottom: 15px;
+        }
+        .criptoAPesosContainer{
+            max-width: 100%;
+            margin-left: initial;
+        }
+    }
+}
+
 footer{
     background-color: rgb(59, 56, 56);
     margin-top: 60px;
@@ -200,8 +232,12 @@ footer{
     }
 }
 
-.conversionMesagge{
-    color: green;
+@media screen and (max-width: 768px){
+    .form-group{
+        input{
+            width: 300px;  
+        }
+    }
 }
 
 .historialConversionesTitle{

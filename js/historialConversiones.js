@@ -25,7 +25,7 @@ function filtroConversion(){
     filterDropdown.addEventListener("click", (e) => {
         e.preventDefault();
         
-        let monedaFiltrada = e.target.closest("li").dataset.value;
+        const monedaFiltrada = e.target.closest("li").dataset.value;
 
         // Limpiar el historial antes de filtrar
         historialContainer.innerHTML = '';
