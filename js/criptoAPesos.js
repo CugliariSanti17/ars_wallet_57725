@@ -11,7 +11,7 @@ function guardarConversionEnLocalStorage(conversion) {
 
 function guardarConversionesCriptoAPesos(conversion){
   historialCriptoAArs.push(conversion);
-  localStorage.setItem('historialCriptoAArs', JSON.stringify(historialCriptoAArs));
+  localStorage.setItem('historialCriptoAPesos', JSON.stringify(historialCriptoAArs));
 }
 
 function mostrarHistorialCripto(conversion){
@@ -74,7 +74,8 @@ convertButton.addEventListener('click', (e) => {
   fetch(`https://api.coingecko.com/api/v3/coins/${monedaElegida}`)
    .then(response => response.json())
    .then(data => {
-      const cantidadConvertida = convertirCriptoAARS(criptoIngresada, data.market_data.current_price.ars);
+      const valorCripto = data.market_data.current_price.ars
+      const cantidadConvertida = convertirCriptoAARS(criptoIngresada, valorCripto);
       const nombreMoneda = data.name;
       const monedaImg = data.image.small;
 

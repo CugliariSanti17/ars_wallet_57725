@@ -110,7 +110,7 @@ convertButton.addEventListener('click', (e) => {
   });
 })
 
-if (historialArsACripto.lenght > 5){
+if (historialArsACripto.length > 5){
   historialArsACripto.shift(historialArsACripto[0])
 };
 
