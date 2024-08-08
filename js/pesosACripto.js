@@ -87,12 +87,15 @@ convertButton.addEventListener('click', (e) => {
     });
   
   Swal.fire({
-    title: "¡Conversion exitosa!",
-    text: "¡La conversion se realizó con éxito!",
+    title: "¡Conversión exitosa!",
+    text: "¡La conversión se realizó con éxito! Consultá tus conversiones en la pestaña de Historial",
     icon: "success",
     confirmButtonText: "Aceptar",
     showConfirmButton: true,
     showCancelButton: false,
+    customClass: {
+      confirmButton: "botonConfirmacion",
+    },
     showClass: {
       popup: `
         animate__animated
