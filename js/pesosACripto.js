@@ -11,7 +11,7 @@ function guardarConversionEnLocalStorage(conversion) {
 
 function guardarConversionPesosACripto(conversion){
   historialArsACripto.push(conversion);
-  localStorage.setItem('historialCriptoAPesos', JSON.stringify(historialArsACripto));
+  localStorage.setItem('historialPesosACripto', JSON.stringify(historialArsACripto));
 }
 
 function mostrarHistorialPesos(conversion){
