@@ -113,7 +113,7 @@ convertButton.addEventListener('click', (e) => {
 });
 
 if (historialCriptoAArs.length > 5){
-  historialCriptoAArs.shift(historialCriptoAArs[0])
+  historialCriptoAArs.shift()
 };
 
 document.addEventListener("DOMContentLoaded", () =>{

@@ -49,8 +49,8 @@ function filtroConversion(){
 
 // Limpiar la primer conversion cuando se llega al límite de 10 conversiones
 if (historialConversiones.length > 10){
-    historialConversiones.shift(historialConversiones[0]);
-}
+    historialConversiones.shift();
+};
 
 // Cargar el historial al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
