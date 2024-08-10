@@ -302,6 +302,19 @@ footer{
     margin-left: 20px;
 }
 
+@media screen and (max-width: 768px){
+    .titleContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .filtrarConversiones{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .ordenarConversiones{
+        margin-left: 10px;
+    }
+}
 .botonConfirmacion{
     background-color: #3498db;
 }
