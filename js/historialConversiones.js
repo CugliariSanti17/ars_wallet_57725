@@ -1,6 +1,7 @@
 
 const filterDropdown = document.getElementById("filtrarDropdown");
 const historialContainer = document.getElementById('historialConversiones');
+const orderDropdown = document.getElementById("ordenarDropdown");
 
 function mostrarConversion (conversion){
     const div = document.createElement('div');
@@ -47,6 +48,27 @@ function filtroConversion(){
     });
 }
 
+function ordenarConversion(){
+    orderDropdown.addEventListener("click", (e) => {
+        e.preventDefault();
+        
+        const orden = e.target.closest("li").dataset.value;
+
+        // Limpiar el historial antes de ordenar
+        historialContainer.innerHTML = '';
+
+        if (orden == 1){
+            cargarHistorialDeLocalStorage();
+        }else if (orden == 2){
+            const nuevoAViejo = [...historialConversiones].reverse();
+
+            nuevoAViejo.forEach(conversion => {
+                mostrarConversion(conversion);
+            });
+        }
+    });
+}
+
 // Limpiar la primer conversion cuando se llega al límite de 10 conversiones
 if (historialConversiones.length > 10){
     historialConversiones.shift();
@@ -56,4 +78,5 @@ if (historialConversiones.length > 10){
 document.addEventListener('DOMContentLoaded', () => {
     cargarHistorialDeLocalStorage();
     filtroConversion();
+    ordenarConversion();
 });

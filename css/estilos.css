@@ -297,6 +297,11 @@ footer{
     margin-top: 20px;
 }
 
+.ordenarConversiones{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 .botonConfirmacion{
     background-color: #3498db;
 }
