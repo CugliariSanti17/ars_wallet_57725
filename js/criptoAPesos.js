@@ -83,33 +83,60 @@ convertButton.addEventListener('click', (e) => {
       guardarConversionEnLocalStorage(conversion);
       guardarConversionesCriptoAPesos(conversion);
       mostrarConversionCriptoAPesos();
-    });
 
-  Swal.fire({
-    title: "¡Conversión exitosa",
-    text: "La conversión se realizó con éxito! Consultá tus conversiones en la pestaña de Historial",
-    icon: "success",
-    confirmButtonText: "Aceptar",
-    showConfirmButton: true,
-    showCancelButton: false,
-    customClass: {
-      confirmButton: "botonConfirmacion",
-    },
-    showClass: {
-      popup: `
-        animate__animated
-        animate__fadeInUp
-        animate__faster
-      `
-    },
-    hideClass: {
-      popup: `
-        animate__animated
-        animate__fadeOutDown
-        animate__faster
-      `
-    }
-  });
+      Swal.fire({
+        title: "¡Conversión exitosa",
+        text: "La conversión se realizó con éxito! Consultá tus conversiones en la pestaña de Historial",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        showConfirmButton: true,
+        showCancelButton: false,
+        customClass: {
+          confirmButton: "botonConfirmacion",
+        },
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+        }
+      });
+    })
+    .catch(error => {
+      Swal.fire({
+        title: "Error",
+        text: "Hubo un error al realizar la conversión. Intente nuevamente más tarde.",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+        showConfirmButton: true,
+        showCancelButton: false,
+        customClass: {
+          confirmButton: "botonConfirmacion",
+        },
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+        }
+      });
+    });
 });
 
 if (historialCriptoAArs.length > 5){
